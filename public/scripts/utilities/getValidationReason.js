@@ -21,6 +21,4 @@ export default function getValidationReason(element) {
       return reason
     }
   }
-
-  return null
 }
