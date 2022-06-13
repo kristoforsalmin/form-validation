@@ -6,7 +6,7 @@ import getValidationReason from '../utilities/getValidationReason.js'
 /**
  * Abstract class providing common validation logic
  * built on top of Constraint Validation API for controls
- * consisting of a single input (or select) and an optional message.
+ * consisting of a single input (or select) and an optional error message.
  *
  * @implements {import('./FormControl').FormControl}
  */
@@ -19,8 +19,8 @@ export default class BaseFormControl extends HTMLElement {
   }
 
   /** @type {?HTMLElement} */
-  get message() {
-    return findTarget(this, 'message')
+  get errorMessage() {
+    return findTarget(this, 'errorMessage')
   }
 
   connectedCallback() {
@@ -46,28 +46,26 @@ export default class BaseFormControl extends HTMLElement {
   markValid() {
     this.controlElement.classList.remove('is-invalid')
 
-    if (this.message) {
-      this.hideMessage()
+    if (this.errorMessage) {
+      this.hideErrorMessage()
     }
   }
 
   markInvalid() {
     this.controlElement.classList.add('is-invalid')
 
-    if (this.message) {
-      this.showMessage()
+    if (this.errorMessage) {
+      this.showErrorMessage()
     }
   }
 
-  showMessage() {
-    this.message.classList.remove('u-hidden')
-    this.message.textContent = getValidationMessage(this.controlElement, getValidationReason(this.controlElement))
-    this.controlElement.setAttribute('aria-describedby', this.message.id)
+  showErrorMessage() {
+    this.errorMessage.textContent = getValidationMessage(this.controlElement, getValidationReason(this.controlElement))
+    this.controlElement.setAttribute('aria-describedby', this.errorMessage.id)
   }
 
-  hideMessage() {
-    this.message.classList.add('u-hidden')
-    this.message.textContent = ''
+  hideErrorMessage() {
+    this.errorMessage.textContent = ''
     this.controlElement.removeAttribute('aria-describedby')
   }
 
