@@ -1,8 +1,4 @@
-import {
-  controller,
-  findTarget,
-  findTargets
-} from '@github/catalyst'
+import { controller, findTarget, findTargets } from '@github/catalyst'
 
 export default class SiteForm extends HTMLElement {
   /** @type {HTMLFormElement} */

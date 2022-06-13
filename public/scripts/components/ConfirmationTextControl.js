@@ -1,5 +1,4 @@
 import { attr, controller } from '@github/catalyst'
-
 import TextControl from './TextControl.js'
 
 const attrs = [

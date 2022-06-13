@@ -1,5 +1,4 @@
 import { findTarget } from '@github/catalyst'
-
 import getValidationMessage from '../utilities/getValidationMessage.js'
 import getValidationReason from '../utilities/getValidationReason.js'
 
