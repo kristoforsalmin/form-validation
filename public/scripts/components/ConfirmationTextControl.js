@@ -20,6 +20,10 @@ export default class ConfirmationTextControl extends TextControl {
     this.referenceElement?.addEventListener('blur', this.handleBlur)
   }
 
+  disconnectedCallback() {
+    this.referenceElement?.removeEventListener('blur', this.handleBlur)
+  }
+
   async isValid() {
     if (this.controlElement.value === this.referenceElement?.value) {
       this.controlElement.setCustomValidity('')
