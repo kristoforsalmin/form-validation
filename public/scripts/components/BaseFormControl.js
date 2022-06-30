@@ -10,6 +10,8 @@ import getValidationReason from '../utilities/getValidationReason.js'
  * @implements {import('./FormControl').FormControl}
  */
 export default class BaseFormControl extends HTMLElement {
+  static attrPrefix = ''
+
   isDirty = false
 
   /** @type {HTMLInputElement | HTMLSelectElement} */
