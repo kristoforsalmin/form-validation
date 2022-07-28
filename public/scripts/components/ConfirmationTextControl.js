@@ -8,7 +8,6 @@ const attrs = [
 export default class ConfirmationTextControl extends TextControl {
   sameAs = ''
 
-  /** @type {HTMLInputElement | HTMLSelectElement | null} */
   get referenceElement() {
     return document.getElementById(this.sameAs)
   }

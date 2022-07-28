@@ -2,24 +2,15 @@ import { findTarget } from '@github/catalyst'
 import getValidationMessage from '../utilities/getValidationMessage.js'
 import getValidationReason from '../utilities/getValidationReason.js'
 
-/**
- * Abstract class providing common validation logic
- * built on top of Constraint Validation API for controls
- * consisting of a single input (or select) and an optional error message.
- *
- * @implements {import('./FormControl').FormControl}
- */
 export default class BaseFormControl extends HTMLElement {
   static attrPrefix = ''
 
   isDirty = false
 
-  /** @type {HTMLInputElement | HTMLSelectElement} */
   get controlElement() {
     return findTarget(this, 'controlElement')
   }
 
-  /** @type {?HTMLElement} */
   get errorMessage() {
     return findTarget(this, 'errorMessage')
   }
@@ -86,9 +77,6 @@ export default class BaseFormControl extends HTMLElement {
     }
   }
 
-  /**
-   * @param {Event} event
-   */
   handleInvalid = (event) => {
     event.preventDefault()
 

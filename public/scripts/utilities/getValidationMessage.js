@@ -1,8 +1,3 @@
-/**
- * @param {HTMLInputElement | HTMLSelectElement} element
- * @param {string} [validationReason]
- * @returns {string}
- */
 export default function getValidationMessage(element, validationReason) {
   const messages = [
     element.dataset.errorMessage,

@@ -1,12 +1,10 @@
 import { controller, findTarget, findTargets } from '@github/catalyst'
 
 export default class SiteForm extends HTMLElement {
-  /** @type {HTMLFormElement} */
   get formElement() {
     return findTarget(this, 'formElement')
   }
 
-  /** @type {Array<import('./FormControl').FormControl>} */
   get controls() {
     return findTargets(this, 'controls')
   }

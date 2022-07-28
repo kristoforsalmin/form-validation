@@ -11,10 +11,6 @@ const validationReasons = [
   'valueMissing'
 ]
 
-/**
- * @param {HTMLInputElement | HTMLSelectElement} element
- * @returns {?string}
- */
 export default function getValidationReason(element) {
   for (const reason of validationReasons) {
     if (element.validity[reason]) {
